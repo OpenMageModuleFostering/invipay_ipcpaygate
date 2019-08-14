@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Invipay_Ipcpaygate>
+      <active>true</active>
+      <codePool>community</codePool>
+       
+      <depends>
+        <Mage_Payment />
+      </depends>
+    </Invipay_Ipcpaygate>
+  </modules>
+</config>

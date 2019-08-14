@@ -1,0 +1,33 @@
+<div class="form-list" id="payment_form_<?php echo $this->getMethodCode() ?>" style="display:none;">
+  <div>
+    <?php if($this->getMethod()->getConfigData('invipay_promo_checkout_text') == 'standard') { ?>
+      <p>Po odbiorze zamówionego towaru, zapłacisz za niego w&nbsp;terminie płatności wynikającym z&nbsp;faktury VAT (<?php echo $this->getBaseDueDate(); ?> dni), którą&nbsp;od nas otrzymasz za pośrednictwem aplikacji inviPay.com, powiększonym&nbsp;o&nbsp;7&nbsp;dni od&nbsp;inviPay.com (łącznie&nbsp;<?php echo $this->getTotalDueDate(); ?>&nbsp;dni&nbsp;na&nbsp;zapłatę).</p>
+    <?php } ?>
+
+    <?php if($this->getMethod()->getConfigData('invipay_promo_checkout_text') == 'short') { ?>
+
+      <p>Po odbiorze zamówionego towaru, zapłacisz za niego w&nbsp;terminie płatności wynikającym z&nbsp;faktury VAT (<?php echo $this->getBaseDueDate(); ?> dni), którą od nas otrzymasz za pośrednictwem aplikacji inviPay.com powiększonym o&nbsp;7&nbsp;dni od inviPay.com (łącznie <?php echo $this->getTotalDueDate(); ?> dni na zapłatę). Możesz też wydłużyć sobie ten termin do 4 miesięcy od zakupu (za dodatkową opłatą do inviPay.com).</p>
+
+    <?php } ?>
+
+    <?php if($this->getMethod()->getConfigData('invipay_promo_checkout_text') == 'medium') { ?>
+
+      <p>Bezpieczna, szybka i&nbsp;wygodna metoda płatności świadczona za pośrednictwem inviPay.com. Po wyborze tej metody płatności, zostaniesz przekierowany do bramki płatności inviPay.com gdzie będziesz mógł potwierdzić swoje zakupy (jeżeli posiadasz konto w&nbsp;inviPay.com) lub założyć konto w&nbsp;inviPay.com i&nbsp;dokonać potwierdzenia. Założenie konta w&nbsp;inviPay.com trwa 40 sekund i&nbsp;jest całkowicie bezpłatne oraz niezobowiązujące. Z&nbsp;chwilą potwierdzenia, Twoje zamówienie trafia do realizacji.</p>
+
+      <p>Po odbiorze zamówionego towaru, inviPay.com zapłaci za Twoje zakupy do sklepu, a&nbsp;Ty rozliczysz się z nich z inviPay.com w terminie płatności wynikającym z&nbsp;faktury VAT wystawionej przez sklep (<?php echo $this->getBaseDueDate(); ?> dni), powiększonym o&nbsp;7 dni od inviPay.com (łącznie <?php echo $this->getTotalDueDate(); ?> dni na zapłatę). Rozliczenie zakupu w&nbsp;ww.&nbsp;terminie płatności faktury będzie dla Ciebie całkowicie bezpłatne. </p>
+
+    <?php } ?>
+
+    <?php if($this->getMethod()->getConfigData('invipay_promo_checkout_text') == 'long') { ?>
+
+      <p>Robisz zakupy firmowe i&nbsp;chciałbyś zapłacić za nie tak jak to robisz poza Internetem tj. w terminie płatności wynikającym z faktury otrzymanej od sklepu? Nie lubisz płacić z góry przed otrzymaniem zamówienia? A&nbsp;może nie masz w&nbsp;tej chwili wolnych środków? Skorzystaj z&nbsp;metody płatności inviPay.com.</p>
+
+      <p>Dzięki inviPay.com możesz kupować i&nbsp;płacić za zakupy firmowe po ich odbiorze w&nbsp;terminie płatności wynikającym z&nbsp;faktury otrzymanej od sklepu powiększonym o&nbsp;7 dni od inviPay.com (oczywiście całkowicie bezpłatnie). Jeżeli masz życzenie, możesz też wydłużyć sobie ten termin płatności nawet do 4 miesięcy od zakupu ponosząc dodatkową niewielką opłatę w&nbsp;wysokości 1%, za każde 15 dni wydłużenia. Zawsze to Ty decydujesz kiedy płacisz za swoje zakupy.</p>
+
+      <p>InviPay.com to nie tylko bezpieczeństwo i&nbsp;komfort zakupów. To też łatwość dokonywania zwrotów zakupionych towarów. Wystarczy zawiadomić inviPay.com o&nbsp;problemie z&nbsp;zamówieniem i&nbsp;ewentualnie odesłać towar do sklepu. Z&nbsp;uwagi na to, że nie dokonywałeś żadnych płatności przed otrzymaniem towaru nie musisz też czekać na ich zwrot. Tak inviPay.com na nowo definiuje &quot;wygodne i&nbsp;bezpieczne zakupy online&quot;.</p>
+
+      <p>Aby dokonać zakupów na fakturę z&nbsp;odroczonym terminem, podczas składania zamówienia wybierz metodę płatności inviPay.com. Następnie zaloguj się na swoje konto inviPay.com i&nbsp;potwierdź kodem sms swoje zakupy. Jeżeli nie posiadasz konta, możesz je błyskawicznie założyć (zajmie Ci to 40 sekund, a&nbsp;założenie i&nbsp;prowadzenie konta jest całkowicie bezpłatne). Po potwierdzeniu zakupów, Twoje zamówienie trafia do realizacji.</p>
+
+    <?php } ?>
+  </div>
+</div>

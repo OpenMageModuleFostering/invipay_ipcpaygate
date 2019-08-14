@@ -1,0 +1,72 @@
+<?php
+	$orderId = $this->getOrderId();
+	$checkUrl = Mage::getUrl("ipcpaygate/payment/check", array("order" => $orderId));
+?>
+
+<h1>Oczekiwanie na potwierdzenie płatności w inviPay.com...</h1>
+<p>Oczekujemy na potwierdzenie Twojej płatności w inviPay.com.</p>
+<script type="text/javascript">
+
+	(function(){
+
+		ajaxCall = function(url, callback) {
+			
+			var xhr;
+
+			if(typeof XMLHttpRequest !== 'undefined') {
+				xhr = new XMLHttpRequest();
+			}
+			else {
+				var versions = ["MSXML2.XmlHttp.5.0", "MSXML2.XmlHttp.4.0", "MSXML2.XmlHttp.3.0",  "MSXML2.XmlHttp.2.0", "Microsoft.XmlHttp"]
+
+				for(var i = 0, len = versions.length; i < len; i++) {
+					try {
+						xhr = new ActiveXObject(versions[i]);
+						break;
+					}
+					catch(e){}
+				}
+			}
+
+			xhr.onreadystatechange = function() {
+				if(xhr.readyState < 4) {
+					return;
+				}
+
+				if(xhr.status !== 200) {
+					return;
+				}
+
+				if(xhr.readyState === 4) {
+					callback(xhr);
+				}
+			}
+
+			xhr.open('GET', url, true);
+			xhr.send('');
+		}
+
+		doCheckPayment = function()
+		{
+			ajaxCall('<?php echo $checkUrl ?>', function(xhr) {
+
+				if (xhr) {
+					var response = xhr.responseText;
+					if (response) {
+						var obj = JSON.parse(response);
+						if (obj) {
+							if (obj['redirect'] == true && obj['redirect_url'] != null) {
+								document.location.href = obj['redirect_url'];
+							} else {
+								window.setTimeout(doCheckPayment, 1000);
+							}
+						}
+					}
+				}
+			});
+		};
+
+		doCheckPayment();
+
+	})();
+</script>

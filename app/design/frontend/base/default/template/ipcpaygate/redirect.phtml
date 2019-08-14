@@ -1,0 +1,10 @@
+<?php
+	$redirectUrl = $this->getRedirectUrl();
+	$redirectUrl = htmlentities($redirectUrl);
+?>
+
+<h1>Trwa przekierowanie do inviPay.com...</h1>
+<p>Za chwilę nastąpi przekierowanie do bramki płatniczej inviPay.com. Jeżeli Twoja przeglądarka nie zostanie przekierowana automatycznie <a href="<?php echo $redirectUrl; ?>">kliknij tutaj</a>.</p>
+<script type="text/javascript">
+	window.setTimeout(function(){ document.location.href = '<?php echo $redirectUrl; ?>'; }, 500);
+</script>

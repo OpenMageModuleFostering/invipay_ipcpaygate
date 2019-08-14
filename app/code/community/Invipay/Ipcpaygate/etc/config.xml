@@ -1,0 +1,96 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+	<Invipay_Ipcpaygate>
+	  <version>1.0.0.3</version>
+	</Invipay_Ipcpaygate>
+  </modules>
+ 
+  <global>
+	<events>
+		<sales_order_save_after>
+			<observers>
+				<ipcpaygate>
+					<type>model</type>
+					<class>ipcpaygate/orderstatusobserver</class>
+					<method>orderSaved</method>
+				</ipcpaygate>
+			</observers>
+		</sales_order_save_after>
+	</events>
+
+	<fieldsets>
+		<sales_convert_quote_payment>
+			<invipay_payment_id>
+				<to_order_payment>*</to_order_payment>
+			</invipay_payment_id>
+		</sales_convert_quote_payment>
+	</fieldsets>
+
+	<helpers>
+	  <ipcpaygate>
+		<class>Invipay_Ipcpaygate_Helper</class>
+	  </ipcpaygate>
+	</helpers>
+ 
+	<blocks>
+	  <ipcpaygate>
+		<class>Invipay_Ipcpaygate_Block</class>
+	  </ipcpaygate>
+	</blocks>
+		 
+	<models>
+	  <ipcpaygate>
+		<class>Invipay_Ipcpaygate_Model</class>
+	  </ipcpaygate>
+	</models>
+ 
+	<resources>
+	  <ipcpaygate_setup>
+		<setup>
+		  <module>Invipay_Ipcpaygate</module>
+		  <class>Invipay_Ipcpaygate_Model_Resource_Setup</class>
+		</setup>
+	  </ipcpaygate_setup>
+	</resources>
+  </global>
+ 
+  <default>
+	<payment>
+	  <ipcpaygate>
+		<active>1</active>
+		<model>ipcpaygate/paymentmethod</model>
+		<title>Zakupy na fakturę z 14-dniowym terminem płatności (tylko dla zakupów na firmę)</title>
+		<allowspecific>0</allowspecific>
+		<payment_action>sale</payment_action>
+		<min_order_total>200.00</min_order_total>
+		<invipay_base_duedate>14</invipay_base_duedate>
+		<invipay_promo_checkout_text>standard</invipay_promo_checkout_text>
+		<invipay_widgets_floatingpanel>right</invipay_widgets_floatingpanel>
+		<invipay_widgets_basketinfo>1</invipay_widgets_basketinfo>
+		<invipay_widgets_footericon>1</invipay_widgets_footericon>
+		<invipay_demo_mode>0</invipay_demo_mode>
+	  </ipcpaygate>
+	</payment>
+  </default>
+   
+  <frontend>
+    <layout>
+        <updates>
+            <ipcpaygate>
+                <file>ipcpaygate.xml</file>
+            </ipcpaygate>
+        </updates>
+    </layout>
+  	
+	<routers>
+	  <ipcpaygate>
+		<use>standard</use>
+		<args>
+		  <module>Invipay_Ipcpaygate</module>
+		  <frontName>ipcpaygate</frontName>
+		</args>
+	  </ipcpaygate>
+	</routers>
+  </frontend>
+</config>

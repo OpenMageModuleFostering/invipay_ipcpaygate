@@ -1,0 +1,16 @@
+<layout version="0.1.0">
+    <default>
+        <reference name="head" before="-">
+            <block type="core/template" name="invipay_widgets_head" template="ipcpaygate/widgets/head.phtml" />
+        </reference>
+        <reference name="before_body_end">
+        	<block type="ipcpaygate/widgets_floatingpanel" name="invipay_widgets_floatingpanel"/>
+        </reference>
+        <reference name="cart_sidebar.extra_actions">
+            <block type="ipcpaygate/widgets_basketinfo" name="invipay_widgets_basketinfo"/>
+        </reference>
+        <reference name="footer">
+            <block type="ipcpaygate/widgets_footericon" name="invipay_widgets_footericon"/>
+        </reference>
+    </default>
+</layout>
