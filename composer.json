@@ -1,16 +1,19 @@
 {
-    "name": "OpenMageModuleFostering/Invipay_Ipcpaygate",
+    "name": "OpenMageModuleFostering\/Invipay_Ipcpaygate",
     "type": "magento-module",
     "license": "OSL-3.0",
     "homepage": "",
-    "description": "Metoda płatności dzięki której, sprzedajesz na fakturę z odroczonym terminem płatności bez żadnego ryzyka.",
+    "description": "Metoda p\u0142atno\u015bci dzi\u0119ki kt\u00f3rej, sprzedajesz na faktur\u0119 z odroczonym terminem p\u0142atno\u015bci bez \u017cadnego ryzyka.",
     "authors": [
-    {
-        "name": "inviPay.com",
-        "email": "kpilecki@invipay.com"
-    }
-],
+        {
+            "name": "inviPay.com",
+            "email": "kpilecki@invipay.com"
+        }
+    ],
     "suggest": {
-        "magento-hackathon/magento-composer-installer": "*"
-    }
+        "magento-hackathon\/magento-composer-installer": "*"
+    },
+    "keywords": [
+        "openmage-module"
+    ]
 }
