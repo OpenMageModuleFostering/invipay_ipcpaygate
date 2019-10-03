@@ -1,3 +1,5 @@
+
+
 ## Original Package Description
 
 Metoda płatności dzięki której, sprzedajesz na fakturę z odroczonym terminem płatności bez żadnego ryzyka.
